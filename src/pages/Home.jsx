@@ -1,11 +1,12 @@
-import { useState, useRef, useEffect } from 'react';
+import { useRef, useEffect } from 'react';
 import { useFetchCrypto } from '../hooks/useFetchCrypto';
 import { useCrypto } from '../context/CryptoContext';
+import { useLocalStorage } from '../hooks/useLocalStorage';
 
 export default function Home() {
   const { loading, error } = useFetchCrypto();
   const { coins } = useCrypto();
-  const [search, setSearch] = useState('');
+  const [search, setSearch] = useLocalStorage('cryptoSearch', '');
   const searchInputRef = useRef(null);
 
   useEffect(() => {
