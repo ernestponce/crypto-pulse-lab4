@@ -1,4 +1,4 @@
-import { LineChart, Line, XAxis, YAxis, Tooltip, ResponsiveContainer } from 'recharts';
+import { LineChart, Line, XAxis, YAxis, Tooltip, ResponsiveContainer, CartesianGrid } from 'recharts';
 import { useCrypto } from '../context/CryptoContext';
 
 const MarketChart = () => {
@@ -9,16 +9,62 @@ const MarketChart = () => {
   }));
 
   return (
-    <div className="h-80 w-full p-4 bg-gray-800 rounded-xl mt-6">
-      <h2 className="text-white mb-4">Price Comparison (USD)</h2>
-        <ResponsiveContainer>
-            <LineChart data={chartData}>
-                <XAxis dataKey="name" stroke="#94a3b8" />
-                <YAxis stroke="#94a3b8" />
-                <Tooltip contentStyle={{backgroundColor: '#1e293b', border: 'none'}} />
-                <Line type="monotone" dataKey="price" stroke="#22d3ee" strokeWidth={3} />
-            </LineChart>
+    <div className="relative border border-cyan-500/50 bg-[#051324]/80 p-6 shadow-[0_0_20px_rgba(0,255,255,0.15)] mt-4">
+      {/* Sci-fi corners */}
+      <div className="absolute top-0 left-0 w-6 h-6 border-t-2 border-l-2 border-cyan-400"></div>
+      <div className="absolute bottom-0 right-0 w-6 h-6 border-b-2 border-r-2 border-cyan-400"></div>
+      
+      <div className="flex justify-between items-center mb-8 border-b border-cyan-500/30 pb-3">
+        <h2 className="text-cyan-400 font-bold tracking-[0.2em] text-lg">RADAR // MARKET_TRAJECTORY</h2>
+        <div className="flex items-center gap-3">
+          <div className="w-3 h-3 bg-cyan-400 rounded-full animate-ping"></div>
+          <span className="text-xs text-cyan-500 tracking-widest font-bold">LIVE_FEED</span>
+        </div>
+      </div>
+      
+      {/* Explicit height fixes the cutoff issue! */}
+      <div className="h-[500px] w-full">
+        <ResponsiveContainer width="100%" height="100%">
+          <LineChart data={chartData} margin={{ top: 20, right: 30, left: 20, bottom: 10 }}>
+            {/* Tech background grid */}
+            <CartesianGrid strokeDasharray="3 3" stroke="#0f3460" vertical={false} />
+            <XAxis 
+              dataKey="name" 
+              stroke="#0ea5e9" 
+              tick={{fill: '#38bdf8', fontSize: 12, fontFamily: 'monospace'}} 
+              axisLine={{stroke: '#0369a1', strokeWidth: 2}}
+              tickLine={{stroke: '#0369a1'}}
+            />
+            <YAxis 
+              stroke="#0ea5e9" 
+              tick={{fill: '#38bdf8', fontSize: 12, fontFamily: 'monospace'}}
+              axisLine={{stroke: '#0369a1', strokeWidth: 2}}
+              tickLine={{stroke: '#0369a1'}}
+              domain={['auto', 'auto']}
+              tickFormatter={(value) => `$${value.toLocaleString()}`}
+            />
+            <Tooltip 
+              contentStyle={{
+                backgroundColor: '#051324', 
+                border: '1px solid #06b6d4',
+                color: '#cffafe',
+                boxShadow: '0 0 15px rgba(6,182,212,0.4)',
+                fontFamily: 'monospace'
+              }}
+              itemStyle={{ color: '#22d3ee' }}
+            />
+            {/* Futuristic step line graph */}
+            <Line 
+              type="stepAfter" 
+              dataKey="price" 
+              stroke="#00f0ff" 
+              strokeWidth={3} 
+              dot={{ r: 4, fill: '#051324', stroke: '#00f0ff', strokeWidth: 2 }}
+              activeDot={{ r: 8, fill: '#00f0ff', stroke: '#fff', strokeWidth: 2, filter: 'drop-shadow(0px 0px 8px rgba(0,255,255,0.8))' }}
+            />
+          </LineChart>
         </ResponsiveContainer>
+      </div>
     </div>
   );
 };
