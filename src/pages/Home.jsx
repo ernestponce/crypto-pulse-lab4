@@ -64,12 +64,6 @@ export default function Home() {
           <div key={coin.id} className="relative bg-[#020b14]/80 border border-cyan-800 p-5 hover:border-cyan-400 hover:shadow-[0_0_20px_rgba(0,255,255,0.2)] transition-all group overflow-hidden cursor-pointer">
             <div className="absolute top-0 left-0 w-full h-1 bg-cyan-400/50 opacity-0 group-hover:opacity-100 group-hover:animate-[scan_2s_ease-in-out_infinite] blur-[2px]"></div>
             
-            <div className="absolute top-3 right-3 flex gap-1">
-              <div className="w-1.5 h-1.5 bg-cyan-700"></div>
-              <div className="w-1.5 h-1.5 bg-cyan-700"></div>
-              <div className="w-1.5 h-1.5 bg-cyan-400 shadow-[0_0_5px_#22d3ee]"></div>
-            </div>
-
             <div className="text-xs text-cyan-600 mb-1 tracking-widest">ID: {coin.symbol.toUpperCase()}</div>
             <h3 className="text-xl text-cyan-100 font-bold tracking-widest mb-4 uppercase">{coin.name}</h3>
             

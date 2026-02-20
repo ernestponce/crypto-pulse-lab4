@@ -2,14 +2,23 @@ import { BrowserRouter as Router, Routes, Route, Link } from 'react-router-dom';
 import { CryptoProvider } from './context/CryptoContext';
 import Home from './pages/Home';
 import Analysis from './pages/Analysis';
+<<<<<<< HEAD
 import Settings from './pages/Settings';
+=======
+>>>>>>> b183b24f9c08c45a421d0020f4b5ff7f2eaad21a
 
 function App() {
   return (
     <CryptoProvider>
       <Router>
         <div className="min-h-screen p-4 md:p-8">
+<<<<<<< HEAD
           <nav className="mb-8 border border-cyan-500/50 bg-[#051324]/80 p-5 shadow-[0_0_15px_rgba(0,255,255,0.2)] flex flex-col md:flex-row justify-between items-center relative">
+=======
+          {/* Top HUD Frame */}
+          <nav className="mb-8 border border-cyan-500/50 bg-[#051324]/80 p-5 shadow-[0_0_15px_rgba(0,255,255,0.2)] flex flex-col md:flex-row justify-between items-center relative">
+            {/* Decorative Sci-Fi corners */}
+>>>>>>> b183b24f9c08c45a421d0020f4b5ff7f2eaad21a
             <div className="absolute top-0 left-0 w-4 h-4 border-t-2 border-l-2 border-cyan-400"></div>
             <div className="absolute bottom-0 right-0 w-4 h-4 border-b-2 border-r-2 border-cyan-400"></div>
 
@@ -20,19 +29,28 @@ function App() {
               </h1>
             </div>
             
+<<<<<<< HEAD
             <div className="flex flex-wrap justify-center gap-6 mt-4 md:mt-0 font-bold tracking-widest text-sm uppercase">
               <Link to="/" className="text-cyan-600 hover:text-cyan-300 hover:drop-shadow-[0_0_8px_rgba(0,255,255,0.8)] transition-all">Market_Data</Link>
               <Link to="/analysis" className="text-cyan-600 hover:text-cyan-300 hover:drop-shadow-[0_0_8px_rgba(0,255,255,0.8)] transition-all">Radar_Analysis</Link>
               <Link to="/settings" className="text-cyan-600 hover:text-cyan-300 hover:drop-shadow-[0_0_8px_rgba(0,255,255,0.8)] transition-all border-l border-cyan-800 pl-6 flex items-center gap-2">
                 ⚙️ Config
               </Link>
+=======
+            <div className="flex gap-8 mt-4 md:mt-0 font-bold tracking-widest text-sm">
+              <Link to="/" className="text-cyan-600 hover:text-cyan-300 hover:drop-shadow-[0_0_8px_rgba(0,255,255,0.8)] transition-all">MARKET_DATA</Link>
+              <Link to="/analysis" className="text-cyan-600 hover:text-cyan-300 hover:drop-shadow-[0_0_8px_rgba(0,255,255,0.8)] transition-all">RADAR_ANALYSIS</Link>
+>>>>>>> b183b24f9c08c45a421d0020f4b5ff7f2eaad21a
             </div>
           </nav>
 
           <Routes>
             <Route path="/" element={<Home />} />
             <Route path="/analysis" element={<Analysis />} />
+<<<<<<< HEAD
             <Route path="/settings" element={<Settings />} />
+=======
+>>>>>>> b183b24f9c08c45a421d0020f4b5ff7f2eaad21a
           </Routes>
         </div>
       </Router>
