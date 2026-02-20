@@ -1,0 +1,20 @@
+@import "tailwindcss";
+
+body {
+  background-color: #020813;
+  /* This creates the futuristic grid lines on the background */
+  background-image:
+    linear-gradient(rgba(34, 211, 238, 0.05) 1px, transparent 1px),
+    linear-gradient(90deg, rgba(34, 211, 238, 0.05) 1px, transparent 1px);
+  background-size: 40px 40px;
+  color: #e2e8f0;
+  /* Monospace font to make it look like a computer terminal */
+  font-family: 'Courier New', Courier, monospace; 
+}
+
+/* Custom animation for a scanner effect */
+@keyframes scan {
+  0% { transform: translateY(-100px); opacity: 0;}
+  50% { opacity: 1; }
+  100% { transform: translateY(200px); opacity: 0; }
+}
